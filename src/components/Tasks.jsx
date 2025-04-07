@@ -15,7 +15,7 @@ const Tasks = () => {
         <h1>Add Tasks</h1>
       </Header>
       <input
-        className="input"
+        className=""
         type="text"
         placeholder="Create your task"
         value={inputValue}
