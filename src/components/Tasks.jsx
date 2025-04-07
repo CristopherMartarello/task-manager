@@ -1,9 +1,9 @@
-import { useState } from "react";
-import Header from "./Header";
+import { useState } from 'react';
+import Header from './Header';
 
 const Tasks = () => {
-  const [messages, setMessages] = useState(["Hello World", "2", "3", "4"]);
-  const [inputValue, setInputValue] = useState("Digite o nome da tarefa");
+  const [messages, setMessages] = useState(['Hello World', '2', '3', '4']);
+  const [inputValue, setInputValue] = useState('Digite o nome da tarefa');
 
   const handleButtonClick = () => {
     setMessages([...messages, inputValue]);
