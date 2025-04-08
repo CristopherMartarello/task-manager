@@ -1,7 +1,11 @@
-import Tasks from './components/Tasks';
+import Sidebar from './components/Sidebar';
 
 const App = () => {
-  return <Tasks />;
+  return (
+    <div>
+      <Sidebar />
+    </div>
+  );
 };
 
 export default App;
