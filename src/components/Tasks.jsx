@@ -75,7 +75,10 @@ const Tasks = () => {
             variant="primary"
             onClick={() => setAddTaskDialogIsOpen(true)}
           />
-          <AddTaskDialog isOpen={addTaskDialogIsOpen} />
+          <AddTaskDialog
+            isOpen={addTaskDialogIsOpen}
+            handleClose={() => setAddTaskDialogIsOpen(false)}
+          />
         </div>
       </div>
 
