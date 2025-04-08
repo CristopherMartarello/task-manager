@@ -8,6 +8,7 @@ import TasksSeparator from './TasksSeparator';
 import { useState } from 'react';
 import TASKS from '../constants/tasks';
 import TaskItem from './TaskItem';
+import { toast } from 'sonner';
 
 const Tasks = () => {
   const [tasks, setTasks] = useState(TASKS);
@@ -38,11 +39,13 @@ const Tasks = () => {
     });
 
     setTasks(newTasks);
+    toast.success('Tarefa atualizada com sucesso!');
   };
 
   const handleTaskDeleteClick = (taskId) => {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
+    toast.success('Tarefa deletada com sucesso!');
   };
 
   return (
