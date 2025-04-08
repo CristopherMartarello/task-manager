@@ -1,4 +1,4 @@
-const Button = ({ text, icon, variant = 'primary' }) => {
+const Button = ({ text, icon, variant = 'primary', ...rest }) => {
   const getVariantColors = () => {
     if (variant === 'primary') {
       return 'bg-[#00AD85] text-white';
@@ -12,6 +12,7 @@ const Button = ({ text, icon, variant = 'primary' }) => {
   return (
     <button
       className={`flex items-center gap-1 rounded-md px-3 py-2 text-xs ${getVariantColors()} transition hover:opacity-80`}
+      {...rest}
     >
       {text}
       {icon}
