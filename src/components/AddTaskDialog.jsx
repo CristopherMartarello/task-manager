@@ -10,22 +10,24 @@ import Input from './Input';
 import TimeSelect from './TimeSelect';
 
 const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
-  const [time, setTime] = useState();
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
   const [errors, setErrors] = useState([]);
   const nodeRef = useRef();
+  const titleRef = useRef();
+  const timeRef = useRef();
+  const descriptionRef = useRef();
 
   useEffect(() => {
     if (!isOpen) {
-      setTitle('');
-      setTime('morning');
-      setDescription('');
+      console.log('a');
     }
   }, [isOpen]);
 
   const handleSaveClick = () => {
     const newErrors = [];
+    const title = titleRef.current.value;
+    const time = timeRef.current.value;
+    const description = descriptionRef.current.value;
+
     if (!title.trim()) {
       newErrors.push({
         inputName: 'title',
@@ -97,23 +99,17 @@ const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
                   id="title"
                   label="Título"
                   placeholder={'Insira o título da tarefa'}
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
                   error={titleError}
+                  ref={titleRef}
                 />
 
-                <TimeSelect
-                  value={time}
-                  onChange={(e) => setTime(e.target.value)}
-                  error={timeError}
-                />
+                <TimeSelect ref={timeRef} error={timeError} />
 
                 <Input
                   id="description"
                   label="Descrição"
                   placeholder={'Descreva a tarefa'}
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
+                  ref={descriptionRef}
                   error={descriptionError}
                 />
 
