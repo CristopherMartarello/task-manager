@@ -13,6 +13,7 @@ const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
   const [time, setTime] = useState();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
+  const [errors, setErrors] = useState([]);
   const nodeRef = useRef();
 
   useEffect(() => {
@@ -24,8 +25,33 @@ const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
   }, [isOpen]);
 
   const handleSaveClick = () => {
-    if (!title.trim() || !time.trim() || !description.trim()) {
-      return alert('Preencha todos os campos.');
+    const newErrors = [];
+    if (!title.trim()) {
+      newErrors.push({
+        inputName: 'title',
+        message: 'O título é obrigatório.',
+      });
+    }
+
+    if (!time.trim()) {
+      newErrors.push({
+        inputName: 'time',
+        message: 'O horário é obrigatório.',
+      });
+    }
+
+    if (!description.trim()) {
+      newErrors.push({
+        inputName: 'description',
+        message: 'A descrição é obrigatória.',
+      });
+    }
+
+    console.log(newErrors);
+
+    if (newErrors.length > 0) {
+      setErrors(newErrors);
+      return;
     }
 
     handleSubmit({
@@ -38,6 +64,12 @@ const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
 
     handleClose();
   };
+
+  const titleError = errors.find((error) => error.inputName === 'title');
+  const timeError = errors.find((error) => error.inputName === 'time');
+  const descriptionError = errors.find(
+    (error) => error.inputName === 'description'
+  );
 
   return (
     <CSSTransition
@@ -68,18 +100,24 @@ const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
                   placeholder={'Insira o título da tarefa'}
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
+                  error={titleError}
                 />
+
                 <TimeSelect
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
+                  error={timeError}
                 />
+
                 <Input
                   id="description"
                   label="Descrição"
                   placeholder={'Descreva a tarefa'}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
+                  error={descriptionError}
                 />
+
                 <div className="flex gap-3">
                   <Button
                     text={'Cancelar'}
