@@ -1,6 +1,6 @@
 import './AddTaskDialog.css';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 import { v4 } from 'uuid';
@@ -15,12 +15,6 @@ const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
   const titleRef = useRef();
   const timeRef = useRef();
   const descriptionRef = useRef();
-
-  useEffect(() => {
-    if (!isOpen) {
-      console.log('a');
-    }
-  }, [isOpen]);
 
   const handleSaveClick = () => {
     const newErrors = [];
