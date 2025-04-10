@@ -9,7 +9,7 @@ import InputLabel from './InputLabel';
 //       <InputLabel htmlFor="time">Horário</InputLabel>
 //       <select
 //         id="time"
-//         className="rounded-lg border border-solid px-4 py-3 text-sm outline-[#00ADB5] placeholder:text-[#9A9C9F]"
+//         className="rounded-lg border border-solid px-4 py-3 text-sm outline-brand-primary placeholder:text-brand-text-gray"
 //         {...props}
 //       >
 //         <option value="morning">Manhã</option>
@@ -29,7 +29,7 @@ const TimeSelect = forwardRef((props, ref) => {
       <InputLabel htmlFor="time">Horário</InputLabel>
       <select
         id="time"
-        className="rounded-lg border border-solid px-4 py-3 text-sm outline-[#00ADB5] placeholder:text-[#9A9C9F]"
+        className="rounded-lg border border-solid px-4 py-3 text-sm outline-brand-primary placeholder:text-brand-text-gray"
         {...props}
         ref={ref}
       >

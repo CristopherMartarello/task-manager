@@ -8,15 +8,15 @@ const Button = ({
 }) => {
   const getVariantColors = () => {
     if (variant === 'primary') {
-      return 'bg-[#00AD85] text-white';
+      return 'bg-brand-primary text-white';
     }
 
     if (variant === 'secondary') {
-      return 'bg-transaparent text-[#818181]';
+      return 'bg-transaparent text-brand-dark-gray';
     }
 
     if (variant === 'default') {
-      return 'bg-[#EEEEEE] text-[#35383E]';
+      return 'bg-brand-light-gray text-brand-dark-blue';
     }
   };
 

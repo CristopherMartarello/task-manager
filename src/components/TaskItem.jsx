@@ -4,15 +4,15 @@ import Button from './Button';
 const TaskItem = ({ task, handleCheckboxClick, handleDeleteClick }) => {
   const getStatusClasses = () => {
     if (task.status === 'done') {
-      return 'bg-[#00ADB5] text-[#002C2E]';
+      return 'bg-brand-primary text-[#002C2E]';
     }
 
     if (task.status === 'in_progress') {
-      return 'bg-[#FFAA04] text-[#FFAA04]';
+      return 'bg-brand-process text-brand-process';
     }
 
     if (task.status === 'not_started') {
-      return 'bg-[#35383E] bg-opacity-10 text-[#35383E]';
+      return 'bg-brand-dark-blue bg-opacity-10 text-brand-dark-blue';
     }
   };
 
@@ -32,7 +32,7 @@ const TaskItem = ({ task, handleCheckboxClick, handleDeleteClick }) => {
           />
           {task.status === 'done' && <CheckIcon />}
           {task.status === 'in_progress' && (
-            <LoaderIcon className="text-brand-white animate-spin" />
+            <LoaderIcon className="animate-spin text-brand-white" />
           )}
         </label>
         {task.title}
