@@ -72,12 +72,12 @@ const Tasks = () => {
           <Button
             text={'Limpar tarefas'}
             icon={<TrashIcon />}
-            variant="secondary"
+            color="secondary"
           />
           <Button
             text={'Nova tarefa'}
             icon={<AddIcon />}
-            variant="primary"
+            color="primary"
             onClick={() => setAddTaskDialogIsOpen(true)}
           />
           <AddTaskDialog
