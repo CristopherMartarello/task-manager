@@ -59,7 +59,16 @@ const Tasks = () => {
     toast.success('Tarefa atualizada com sucesso!');
   };
 
-  const handleTaskDeleteClick = (taskId) => {
+  const handleTaskDeleteClick = async (taskId) => {
+    // Chamar API para deletar tarefa
+    const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      return toast.error('Erro ao deletar a tarefa, tente novamente.');
+    }
+
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
     toast.success('Tarefa deletada com sucesso!');
