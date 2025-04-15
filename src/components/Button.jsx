@@ -4,6 +4,7 @@ import { tv } from 'tailwind-variants';
 const Button = ({
   text,
   icon,
+  startIcon,
   color = 'primary',
   size = 'small',
   className,
@@ -21,6 +22,7 @@ const Button = ({
         small: 'px-3 py-2 text-xs',
         large: 'px-4 py-3 text-sm',
       },
+      disabled: { true: 'cursor-not-allowed opacity-50 hover:opacity-50' },
     },
     defaultVariants: {
       color: 'primary',
@@ -29,7 +31,11 @@ const Button = ({
   });
 
   return (
-    <button className={button({ color, size, className })} {...rest}>
+    <button
+      className={button({ color, size, disabled: rest.disabled, className })}
+      {...rest}
+    >
+      {startIcon}
       {text}
       {icon}
     </button>
