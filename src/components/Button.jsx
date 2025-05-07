@@ -15,8 +15,9 @@ const Button = ({
     variants: {
       color: {
         primary: 'bg-brand-primary text-white',
-        secondary: 'bg-transaparent text-brand-dark-gray',
+        secondary: 'bg-transparent text-brand-dark-gray',
         default: 'bg-brand-light-gray text-brand-dark-blue',
+        danger: 'bg-brand-danger text-brand-white',
       },
       size: {
         small: 'px-3 py-2 text-xs',
