@@ -27,20 +27,6 @@
       "description": "Comparar os ingredientes para o jantar",
       "time": "afternoon",
       "status": "in_progress"
-    },
-    {
-      "id": "5",
-      "title": "Descansar",
-      "description": "Assistir um filme com a família",
-      "time": "night",
-      "status": "not_started"
-    },
-    {
-      "id": "6",
-      "title": "Meditar",
-      "description": "Relaxar por 10 minutos",
-      "time": "night",
-      "status": "not_started"
     }
   ]
 }
