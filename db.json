@@ -8,39 +8,11 @@
       "status": "done"
     },
     {
-      "id": "2",
-      "title": "Ler livro",
-      "description": "Ler livro de React",
-      "time": "morning",
-      "status": "done"
-    },
-    {
-      "id": "3",
-      "title": "aaaa",
-      "description": "aaaa",
-      "time": "morning",
-      "status": "in_progress"
-    },
-    {
       "id": "4",
       "title": "Fazer compras",
       "description": "Comparar os ingredientes para o jantar",
       "time": "afternoon",
       "status": "in_progress"
-    },
-    {
-      "id": "062dd057-fc74-4d12-9fb2-db118eb1f38f",
-      "title": "bbbb",
-      "time": "morning",
-      "description": "bbbbb",
-      "status": "not_started"
-    },
-    {
-      "id": "262a396f-f097-48c7-be42-5378edd8589e",
-      "title": "BBBB",
-      "time": "morning",
-      "description": "BBBB",
-      "status": "not_started"
     }
   ]
 }

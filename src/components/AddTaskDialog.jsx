@@ -1,5 +1,6 @@
 import './AddTaskDialog.css';
 
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import PropTypes from 'prop-types';
 import { useRef } from 'react';
 import { createPortal } from 'react-dom';
@@ -13,7 +14,23 @@ import Button from './Button';
 import Input from './Input';
 import TimeSelect from './TimeSelect';
 
-const AddTaskDialog = ({ isOpen, handleClose, onSubmitSuccess }) => {
+const AddTaskDialog = ({ isOpen, handleClose }) => {
+  const queryClient = useQueryClient();
+  const { mutate } = useMutation({
+    mutationKey: 'add-task',
+    mutationFn: async (newTask) => {
+      const response = await fetch('http://localhost:3000/tasks', {
+        method: 'POST',
+        body: JSON.stringify(newTask),
+      });
+
+      if (!response.ok) {
+        return toast.error('Erro ao adicionar a tarefa, tente novamente.');
+      }
+
+      return response.json();
+    },
+  });
   const nodeRef = useRef();
   const {
     register,
@@ -33,22 +50,19 @@ const AddTaskDialog = ({ isOpen, handleClose, onSubmitSuccess }) => {
       status: 'not_started',
     };
 
-    // Chamar API para adicionar tarefa
-    const response = await fetch('http://localhost:3000/tasks', {
-      method: 'POST',
-      body: JSON.stringify(newTask),
-    });
-
-    if (!response.ok) {
-      return toast.error('Erro ao adicionar a tarefa, tente novamente.');
-    }
-
-    onSubmitSuccess(newTask);
-    handleClose();
-    reset({
-      title: '',
-      time: 'morning',
-      description: '',
+    mutate(newTask, {
+      onSuccess: () => {
+        queryClient.setQueryData('tasks', (currentTasks) => {
+          return [...currentTasks, newTask];
+        });
+        handleClose();
+        reset({
+          title: '',
+          time: 'morning',
+          description: '',
+        });
+      },
+      onError: () => toast.error('Erro ao adicionar tarefa'),
     });
   };
 
