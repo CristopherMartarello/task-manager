@@ -1,26 +1,16 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { useState } from 'react';
 import { toast } from 'sonner';
 
-import {
-  AddIcon,
-  MoonIcon,
-  SunCloud,
-  SunIcon,
-  TrashIcon,
-} from '../assets/icons';
+import { MoonIcon, SunCloud, SunIcon } from '../assets/icons';
 import { useGetTasks } from '../hooks/data/use-get-tasks';
 import { taskQueryKeys } from '../keys/queries';
-import AddTaskDialog from './AddTaskDialog';
-import Button from './Button';
+import Header from './Header';
 import TaskItem from './TaskItem';
 import TasksSeparator from './TasksSeparator';
 
 const Tasks = () => {
   const queryClient = useQueryClient();
   const { data: tasks } = useGetTasks();
-
-  const [addTaskDialogIsOpen, setAddTaskDialogIsOpen] = useState(false);
 
   const morningTasks = tasks?.filter((task) => task.time === 'morning');
   const afternoonTasks = tasks?.filter((task) => task.time === 'afternoon');
@@ -53,32 +43,7 @@ const Tasks = () => {
 
   return (
     <div className="w-full space-y-6 px-8 py-16">
-      <div className="flex w-full justify-between">
-        <div>
-          <span className="text-xs font-semibold text-brand-primary">
-            Minhas Tarefas
-          </span>
-          <h2 className="text-xl font-semibold">Minhas Tarefas</h2>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <Button
-            text={'Limpar tarefas'}
-            icon={<TrashIcon />}
-            color="secondary"
-          />
-          <Button
-            text={'Nova tarefa'}
-            icon={<AddIcon />}
-            color="primary"
-            onClick={() => setAddTaskDialogIsOpen(true)}
-          />
-          <AddTaskDialog
-            isOpen={addTaskDialogIsOpen}
-            handleClose={() => setAddTaskDialogIsOpen(false)}
-          />
-        </div>
-      </div>
+      <Header subtitle="Minhas Tarefas" title="Minhas Tarefas" />
 
       <div className="rounded-xl bg-white p-6">
         <div className="space-y-3">
