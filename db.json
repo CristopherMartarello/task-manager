@@ -5,7 +5,7 @@
       "title": "Estudar FSC",
       "description": "Estudar para a prova de FSC",
       "time": "morning",
-      "status": "done"
+      "status": "in_progress"
     },
     {
       "id": "4",
@@ -17,9 +17,9 @@
     {
       "id": "a35f32dc-9f71-4491-a3d9-499086d4820e",
       "title": "AAA",
-      "time": "morning",
+      "time": "night",
       "description": "AAAA",
-      "status": "not_started"
+      "status": "in_progress"
     }
   ]
 }
