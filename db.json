@@ -13,13 +13,6 @@
       "description": "Comparar os ingredientes para o jantar",
       "time": "afternoon",
       "status": "in_progress"
-    },
-    {
-      "id": "7832f834-69c6-4f3f-ac48-b87e92f0129f",
-      "title": "BBBjj",
-      "time": "afternoon",
-      "description": "BBBjj",
-      "status": "not_started"
     }
   ]
 }
