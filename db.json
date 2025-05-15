@@ -12,13 +12,20 @@
       "title": "Fazer compras",
       "description": "Comparar os ingredientes para o jantar",
       "time": "afternoon",
-      "status": "not_started"
+      "status": "done"
     },
     {
       "id": "a35f32dc-9f71-4491-a3d9-499086d4820e",
       "title": "AAA",
       "time": "night",
       "description": "AAAA",
+      "status": "in_progress"
+    },
+    {
+      "id": "af1f33e3-cd4f-4798-9545-f94517348370",
+      "title": "AAAAAABB",
+      "time": "night",
+      "description": "AAAAAAAAAAAABB",
       "status": "in_progress"
     }
   ]
