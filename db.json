@@ -5,14 +5,14 @@
       "title": "Estudar FSC",
       "description": "Estudar para a prova de FSC",
       "time": "morning",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "4",
       "title": "Fazer compras",
       "description": "Comparar os ingredientes para o jantar",
       "time": "afternoon",
-      "status": "in_progress"
+      "status": "not_started"
     },
     {
       "id": "a35f32dc-9f71-4491-a3d9-499086d4820e",
